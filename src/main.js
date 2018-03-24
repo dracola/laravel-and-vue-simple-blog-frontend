@@ -18,7 +18,7 @@ Router.beforeEach(
 		if (to.matched.some(record => record.meta.guest)) {
 			if (Vue.auth.isAuthenticated()) {
 				next({
-					path: '/feed'
+					path: '/posts'
 				})
 			} else {
 				next()

@@ -61,7 +61,7 @@
 					console.log(this.$auth.isAuthenticated());
 
 					// Redirect to feed
-					this.$router.push('/feed')
+					this.$router.push('/posts')
 				})
 			}
 		}

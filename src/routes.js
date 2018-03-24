@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from './components/auth/Login.vue'
 import Register from './components/auth/Register.vue'
-import Feed from './components/Feed.vue'
+import Posts from './components/Posts.vue'
 
 Vue.use(VueRouter)
 
@@ -23,8 +23,8 @@ const router = new VueRouter({
 			}
 		},
 		{
-			path: '/feed',
-			component: Feed,
+			path: '/posts',
+			component: Posts,
 			meta: {
 				auth: true
 			}
