@@ -52,13 +52,11 @@
 					client_secret: 'wj08IIFGJ5w7PYezyWStUFPYGBvgAujmc0fI6NJ6',
 					grant_type: 'password',
 					username: this.email,
-					password: 'secret'
+					password: this.password
 				}
 
-				this.axios.post('http://localhost:8000/oauth/token', data).then(res => {
-					console.log(res.data)
+				this.$http.post('oauth/token', data).then(res => {
 					this.$auth.setToken(res.data.access_token, res.data.expires_in + Date.now())
-					console.log(this.$auth.isAuthenticated());
 
 					// Redirect to feed
 					this.$router.push('/posts')
