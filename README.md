@@ -1,18 +1,5 @@
-# frontend
+# Making simple blog using laravel and vue 2
+### Front end demo: https://whispering-cliffs-15358.herokuapp.com
+### the backend: https://lit-meadow-98798.herokuapp.com/
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### This is the frontend for: https://github.com/dracola/vue-and-laravel-simple-blog-backend
