@@ -29,7 +29,7 @@
                                              :max-rows="6">
                             </b-form-textarea>
                         </b-form-group>
-                        <b-button type="submit" variant="primary">Update post</b-button>
+                        <b-button type="submit" variant="success" :class="show_button">Update post</b-button>
                     </b-form>
                 </b-col>
                 <b-col cols="2"></b-col>
@@ -42,7 +42,8 @@
     export default {
         data() {
             return {
-                post: {}
+                post: {},
+                show_button: ''
             }
         },
         created() {
@@ -50,10 +51,15 @@
         },
         methods: {
             update() {
-                this.$http.put('http://localhost:8000/api/posts/' + this.post.id, this.post).then(res => {
-                    console.log(res.body);
+                this.show_button = 'disabled'
+                this.$http.put('http://localhost:8000/api/posts/' + this.post.id, this.post)
+                    .then(res => {
+                    console.log(res)
                     swal('Updated', 'The post updated successfully', 'success')
                     this.$router.push('/posts')
+                }).catch(err => {
+                    console.log(err)
+                    this.show_button = ''
                 })
             },
             getPost()

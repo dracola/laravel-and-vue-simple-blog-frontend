@@ -1,7 +1,7 @@
 <template>
     <div>
         <b-card :title="post.title" :currentUser="currentUser"
-                img-src="http://lorempixel.com/400/200/food"
+                :img-src="post.image_url"
                 img-alt="Image"
                 img-top
                 img-responsive

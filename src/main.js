@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import BootstrapVue from "bootstrap-vue"
 import App from './App.vue'
+import VeeValidate from 'vee-validate'
 // import axios from 'axios'
 import VueResource from 'vue-resource'
 import VueAxios from 'vue-axios'
@@ -16,9 +17,23 @@ Vue.use(BootstrapVue)
 // Vue.use(VueAxios, axios)
 Vue.use(VueResource)
 Vue.use(Auth)
+Vue.use(VeeValidate)
 
 Vue.http.options.root = 'http://localhost:8000'
 Vue.http.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken();
+// Expect that always there is files
+Vue.http.headers.common['Content-Type'] = 'multipart/form-data'
+
+Vue.http.interceptors.push((request, next) => {
+    next(response => {
+        if (response.status === 404) {
+            swal(response.status.toString(), response.body.error, "error")
+        } else if (response.status === 500) {
+            swal(response.status.toString(), "Sorry!, The system is down, go back later", "error")
+        }
+
+    })
+})
 
 Router.beforeEach(
     (to, from, next) => {
